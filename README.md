@@ -48,3 +48,50 @@ Example 2- CREATE TABLE IF NOT EXISTS customers (
 Exercise 1- I will be setting up an entire database as in the picture below
 ![image](https://github.com/user-attachments/assets/7701eed5-84a8-4c83-9db6-24a3191f471a)
 
+### Solution
+CREATE DATABASE IF NOT EXISTS orders;
+
+USE orders;
+
+CREATE TABLE IF NOT EXISTS warehouse (
+    warehouse_id INT PRIMARY KEY,
+    warehouse_location VARCHAR(20)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(20),
+    product_price INT,
+    warehouse_id INT,
+    FOREIGN KEY (warehouse_id)
+        REFERENCES warehouse (warehouse_id)
+);
+
+CREATE TABLE IF NOT EXISTS deliveries (
+    delivery_id INT PRIMARY KEY,
+    delivery_date DATE,
+    warehouse_id INT,
+    FOREIGN KEY (warehouse_id)
+        REFERENCES warehouse (warehouse_id)
+);
+
+CREATE TABLE IF NOT EXISTS order_info (
+    order_info_id INT PRIMARY KEY,
+    order_id INT,
+    product_id INT,
+    product_quantity INT,
+    FOREIGN KEY (product_id)
+        REFERENCES products (product_id)
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_date DATE,
+    order_info_id INT,
+    order_value INT,
+    order_currency VARCHAR(10),
+    FOREIGN KEY (order_info_id)
+        REFERENCES order_info (order_info_id)
+);
+
+
