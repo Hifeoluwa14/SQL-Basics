@@ -4,11 +4,15 @@ This covers the SQL Basics with examples on how it is done and pictorial represe
 
 The basic SQL topics to be covered include
 
-* CREATE DATABASE
-* DROP DATABASE
-* CREATE TABLE
-* SELECT
-* INSERT
+[CREATE DATABASE](create_database)
+
+[DROP DATABASE](drop_database)
+
+[CREATE TABLE](create_table)
+
+[SELECT](select)
+
+[INSERT](insert)
   
 
   ## CREATE DATABASE
